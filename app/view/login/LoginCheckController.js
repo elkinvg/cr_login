@@ -22,14 +22,19 @@ Ext.define('Login.view.login.LoginCheckController', {
         var prop = Ext.create('Common_d.Property');
         
         Ext.Ajax.request({
-            url: prop.getUrllogin() + '/Status()',
+            //url: prop.getUrllogin() + '/Status()',
             //async: false,
-            method: 'GET',
-//            method: 'POST',
+//            method: 'GET',
+            url: '/cr_conf/check_user.php',
+            method: 'POST',
             timeout: 2000,
             disableCaching: false,
             username: username,
             password: password,
+            params: {
+                username: username,
+                password: password,
+            },
             //params: {
             //    argin: aaa
             //},
