@@ -41,17 +41,17 @@ Ext.define('Login.view.login.LoginCheckController', {
             success: function (response, opts) {
                 me.getView().destroy();
                 var obj = Ext.decode(response.responseText);
-                var priority = obj.priority;
-                if (priority === undefined)
-                    priority = 10;
+                var user_type = obj.user_type;
+                if (user_type === undefined)
+                    user_type = 0;
                 else
-                    priority = parseInt(priority);
+                    user_type = parseInt(user_type);
                 if (typeof dbg !== 'undefined') {                    
                     console.log(obj);
                 }
                 localStorage.setItem("login",opts.username);
                 localStorage.setItem("password",opts.password);
-                localStorage.setItem("priority",priority);
+                localStorage.setItem("user_type",user_type);
             },
             failure: function (response, opts) {
                 loginForm.getForm().findField('username').setValue('');
