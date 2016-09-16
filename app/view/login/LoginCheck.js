@@ -17,16 +17,22 @@ Ext.define('Login.view.login.LoginCheck', {
         xtype: 'form',
         reference: 'loginform',
         items: [{
-            xtype: 'textfield',
-            name: 'username',
-            fieldLabel: 'Username',
-            allowBlank: false
-        }, {
-            xtype: 'textfield',
-            name: 'password',
-            inputType: 'password',
-            fieldLabel: 'Password',
-            allowBlank: false
+                xtype: 'textfield',
+                name: 'username',
+                fieldLabel: 'Username',
+                allowBlank: false,
+                listeners: {
+                    specialkey: 'pressKeyEnter'
+                },
+            }, {
+                xtype: 'textfield',
+                name: 'password',
+                inputType: 'password',
+                fieldLabel: 'Password',
+                allowBlank: false,
+                listeners: {
+                    specialkey: 'pressKeyEnter'
+                },
         }, {
             xtype: 'displayfield',
             hideEmptyLabel: false,

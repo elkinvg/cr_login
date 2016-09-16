@@ -63,4 +63,20 @@ Ext.define('Login.view.login.LoginCheckController', {
             }
         });        
     },
+    //
+    //
+    //
+    pressKeyEnter: function (field, e) {
+        var loginForm = this.lookupReference('loginform');
+        var un = loginForm.getForm().findField('username').getValue().length;
+        var pw = loginForm.getForm().findField('password').getValue().length;
+        if (un === 0 || pw === 0)
+            return;
+        
+        if (field.getValue() != 'null') {
+            if (e.getKey() === e.ENTER) {
+                this.onLoginClick();
+            }
+        }
+    }
 });
