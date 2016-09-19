@@ -19,7 +19,7 @@ Ext.define('Login.view.login.LoginCheck', {
         items: [{
                 xtype: 'textfield',
                 name: 'username',
-                fieldLabel: 'Username',
+                fieldLabel: 'Логин',
                 allowBlank: false,
                 listeners: {
                     specialkey: 'pressKeyEnter'
@@ -28,18 +28,19 @@ Ext.define('Login.view.login.LoginCheck', {
                 xtype: 'textfield',
                 name: 'password',
                 inputType: 'password',
-                fieldLabel: 'Password',
+                fieldLabel: 'Пароль',
                 allowBlank: false,
                 listeners: {
                     specialkey: 'pressKeyEnter'
                 },
         }, {
             xtype: 'displayfield',
+            name: 'logpassdisp',
             hideEmptyLabel: false,
-            value: 'Enter any non-blank password'
+            value: 'Введите имя пользователя<br>и пароль'
         }],
         buttons: [{
-            text: 'Login',
+            text: 'Ввести',
             formBind: true,
             listeners: {
                 click: 'onLoginClick'
