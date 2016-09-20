@@ -9,7 +9,7 @@ Ext.define('Login.view.login.LoginCheck', {
   
     controller: 'logincheck',
     bodyPadding: 10,
-    title: 'Login Window',
+    title: 'Идентификация, шаг 1',
     closable: false,
     autoShow: true,
     

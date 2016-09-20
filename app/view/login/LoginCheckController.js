@@ -49,9 +49,19 @@ Ext.define('Login.view.login.LoginCheckController', {
                 if (typeof dbg !== 'undefined') {                    
                     console.log(obj);
                 }
+                
+                var use_rand_ind = obj.israndIdent;
+                
+                if (use_rand_ind === undefined)
+                    use_rand_ind = 0;
+                
                 localStorage.setItem("login",opts.username);
                 localStorage.setItem("password",opts.password);
                 localStorage.setItem("user_type",user_type);
+                
+                if (use_rand_ind === 1)
+                    localStorage.setItem("use_rand_ident",use_rand_ind);
+                
             },
             failure: function (response, opts) {
                 loginForm.getForm().findField('username').setValue('');
