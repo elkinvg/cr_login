@@ -19,7 +19,7 @@ Ext.define('Login.view.login.LoginCheckController', {
     checkUser: function(username,password) {
         var me = this;
         var loginForm = this.lookupReference('loginform');
-        var prop = Ext.create('Common_d.Property');
+        //var prop = Ext.create('Common_d.Property');
         
         Ext.Ajax.request({
             //url: prop.getUrllogin() + '/Status()',
