@@ -66,7 +66,14 @@ Ext.define('Login.view.login.LoginCheckController', {
             failure: function (response, opts) {
                 loginForm.getForm().findField('username').setValue('');
                 loginForm.getForm().findField('password').setValue('');
-                loginForm.getForm().findField('logpassdisp').setValue('Авторизация не проходит,<br>проверьте логин и пароль,<br>либо обратитесь к администратору');
+                try {
+                    var respData = Ext.JSON.decode(response.responseText);
+                    loginForm.getForm().findField('logpassdisp').setValue(respData.reason);
+                }
+                catch (e) {
+                    loginForm.getForm().findField('logpassdisp').setValue('Авторизация не проходит,<br>проверьте логин и пароль,<br>либо обратитесь к администратору');
+                }
+
             },
             callback: function (options, success, response) {
                 if (success)
